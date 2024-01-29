@@ -1,5 +1,17 @@
 import React from 'react'
 import '../styles/styles.css'
+import $ from 'jquery'
+import getRandomColor from '../styles/const/getRandomColor';
+
+$(document).ready(function () {
+  $('#new-quote').click(function () {
+    console.log('hola')
+    getRandomColor();
+    // setTimeout(function() {
+    //   updateQuote(store.dispatch);
+    // }, 400);
+  });
+});
 
 function Quote(props) {
   return (
