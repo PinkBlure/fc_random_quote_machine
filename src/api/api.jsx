@@ -1,3 +1,6 @@
+import React from "react"
+import updateQuoteData from "../redux/action"
+
 async function updateQuote(dispatch) {
   try {
     const response = await fetch('https://api.quotable.io/random')
@@ -6,13 +9,15 @@ async function updateQuote(dispatch) {
     }
     const data = await response.json()
     dispatch(
-    //   updateQuoteData({
-    //     color: '#f4f4f4',
-    //     quote: data.content,
-    //     author: data.author,
-    //   }),
+      console.log('wenas'),
+      updateQuoteData({
+        quote: data.content,
+        author: data.author,
+      }),
     )
   } catch (error) {
     console.error('An error occurred during the quote update:', error)
   }
 }
+
+export default updateQuote
