@@ -10,7 +10,7 @@ $(document).ready(function () {
     console.log('hola')
     getRandomColor();
     setTimeout(function() {
-      updateQuote(store.dispatch);
+      // updateQuote(store.dispatch);
     }, 400);
   });
 });
