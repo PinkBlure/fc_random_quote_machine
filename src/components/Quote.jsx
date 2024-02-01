@@ -2,8 +2,7 @@ import React from 'react'
 import '../styles/styles.css'
 import $ from 'jquery'
 import getRandomColor from '../styles/const/getRandomColor';
-import updateQuote from '../api/api.jsx';
-import store from '../redux/store.jsx';
+
 
 $(document).ready(function () {
   $('#new-quote').click(function () {
