@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../styles/styles.css'
 import $ from 'jquery'
 import getRandomColor from '../styles/const/getRandomColor';
+import useFetchData from '../api/fetchData';
 
 
 $(document).ready(function () {
@@ -15,15 +16,27 @@ $(document).ready(function () {
 });
 
 function Quote(props) {
+
+  const [fetchTrigger, setFetchTrigger] = useState(false)
+  const {data, isLoading, error, fetchData } = useFetchData(fetchTrigger)
+
+  const handleNewQuote = () => {
+    setFetchTrigger(!fetchTrigger)
+    fetchData()
+  }
+
+  if (isLoading) return <div>Loading ...</div>
+  if (error) return <div>Error: {error.message}</div>
+
   return (
     <div id="quote-box" className="card p-4" style={{ width: '30rem' }}>
       <div className="card-body">
         <blockquote className="text-end">
           <p id="text" className="card-text text-center fs-2">
-            <i id="quote_icon" className="fas fa-quote-left" /> Hola soy una
-            quote
+            <i id="quote_icon" className="fas fa-quote-left" />
+            {' '}{data && data.content}
           </p>
-          <cite id="author">- Este es el autor de la cita</cite>
+          <cite id="author">- {data && data.author}</cite>
         </blockquote>
         <div className="d-flex flex-row justify-content-between align-items-end">
           <div className="d-flex justify-content-between mt-3 align-items-center">
@@ -44,7 +57,7 @@ function Quote(props) {
               <i className="fab fa-github" />
             </a>
           </div>
-          <button id="new-quote" className="col-md-4">
+          <button id="new-quote" className="col-md-4" onClick={handleNewQuote}>
             New quote
           </button>
         </div>
