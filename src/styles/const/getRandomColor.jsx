@@ -10,11 +10,8 @@ const getRandomColor = () => {
   const colorIndex = Math.floor(Math.random() * colors.length);
   const randomColor = colors[colorIndex];
     
-  $('p, cite').fadeOut(600, function () {
-    $('#tweet-quote, #tumblr-quote, #github, .bg-color, #new-quote').css('background-color', randomColor)
-    $('p, cite').css('color', randomColor)
-    $(this).fadeIn(700);
-  });
+  $('#tweet-quote, #tumblr-quote, #github, .bg-color, #new-quote').css('background-color', randomColor)
+  $('p, cite').css('color', randomColor)
 
 }
 
