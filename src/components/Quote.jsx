@@ -22,7 +22,7 @@ function Quote(props) {
   if (error) return <div>Error: {error.message}</div>
 
   return (
-    <div id="quote-box" className="card p-4" style={{ width: '30rem' }}>
+    <div id="quote-box" className="card p-4" style={{ maxWidth: '30rem', width: '100%', marginLeft: '2rem', marginRight: '2rem' }}>
       <div id="card-body" className="card-body">
         <blockquote className="text-end">
           <p id="text" className="card-text text-center fs-2">
