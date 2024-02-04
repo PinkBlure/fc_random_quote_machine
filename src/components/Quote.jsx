@@ -10,12 +10,12 @@ function Quote(props) {
   const {data, isLoading, error, fetchData } = useFetchData(fetchTrigger)
 
   const handleNewQuote = () => {
-    $('p, cite').fadeOut(600, function() {
+    $('p, cite').fadeOut(500, function() {
       fetchData();
       getRandomColor();
       setTimeout(() => {
-        $(this).fadeIn(600);
-      }, 300);
+        $(this).fadeIn(500);
+      }, 400);
     });
   }
 
