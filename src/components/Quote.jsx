@@ -15,7 +15,7 @@ function Quote(props) {
       getRandomColor();
       setTimeout(() => {
         $(this).fadeIn(600);
-      }, 200);
+      }, 300);
     });
   }
 
