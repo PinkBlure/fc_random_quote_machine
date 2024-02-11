@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import axios from "axios";
 
 function useFetchData() {
     const [data, setData] = useState(null)
@@ -8,10 +9,8 @@ function useFetchData() {
     const fetchData = async () => {
         setIsLoading(true)
         try {
-            const res = await fetch('https://api.quotable.io/random')
-            const data = await res.json()
-            console.log(data)
-            setData(data)
+            const response = await axios.get('https://api.quotable.io/random');
+            setData(response.data);
         } catch (error) {
             setError(error)
         } finally {
