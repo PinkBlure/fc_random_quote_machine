@@ -9,8 +9,9 @@ function useFetchData() {
     const fetchData = async () => {
         setIsLoading(true)
         try {
-            const response = await axios.get('https://api.quotable.io/random');
-            setData(response.data);
+            const response = await axios.get('https://api.quotable.io/quotes/random');
+            console.log(response.data[0])
+            setData(response.data[0]);
         } catch (error) {
             setError(error)
         } finally {
