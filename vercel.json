@@ -10,10 +10,20 @@
       "use": "@vercel/static"
     }
   ],
+  "functions": {
+    "api/server/server.js": {
+      "memory": 1024,
+      "maxDuration": 10
+    }
+  },
   "routes": [
     {
-      "src": "/(.*)",
-      "dest": "/"
+      "src": "/",
+      "dest": "frontend/dist"
+    },
+    {
+      "src": "/.*",
+      "dest": "api/server/server.js"
     }
   ]
 }
